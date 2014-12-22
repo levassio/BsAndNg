@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 
-	var app = angular.module('ef', ["ngRoute"]);
+	var app = angular.module('ef', ["ngRoute", "ui.bootstrap"]);
 
 	app.config(function ($routeProvider) {
 		$routeProvider

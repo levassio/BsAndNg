@@ -8,7 +8,6 @@
 		$scope.showCreateEmployeeForm = function () {
 			$location.path('/employeeForm');
 		};
-
 	};
 
 	var app = angular.module('ef');
