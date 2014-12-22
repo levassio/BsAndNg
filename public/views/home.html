@@ -1,0 +1,14 @@
+<table class="table table-striped" ng-show="employees.length > 0">
+	<thead>
+	<tr>
+		<td>Name</td>
+		<td>Department</td>
+	</tr>
+	</thead>
+	<tr ng-repeat="employee in employees">
+		<td><a href="#/employeeForm/{{employee.id}}">{{employee.fullName}}</a></td>
+		<td>{{employee.department}}</td>
+	</tr>
+</table>
+
+<input class="btn btn-primary" type="button" value="Add New Employee" ng-click="showCreateEmployeeForm()"/>
