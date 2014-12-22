@@ -7,11 +7,11 @@
 		var idFountain = employees.length + 1;
 
 		var getEmployee = function (id) {
-			return _.findWhere(employees, { id: parseInt(id, 10) });
+			return _.find(employees, { id: parseInt(id, 10) });
 		};
 
 		var saveEmployee = function (employee) {
-			if (employee && !_.findWhere(employees, employee)) {
+			if (employee && !_.find(employees, employee)) {
 				employee.id = idFountain++;
 				employees.push(employee);
 			}
