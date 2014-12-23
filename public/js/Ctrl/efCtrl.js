@@ -3,6 +3,14 @@
 
 	var efCtrl = function ($scope, dataSrv, $window, $routeParams) {
 
+		var validation = {
+			fullNameRequired: true,
+			fullNameClass: "has-warning",
+			departmentClass: ""
+		};
+
+		$scope.validation = validation;
+
 		var employee = dataSrv.getEmployee($routeParams.id);
 		var originalEmployee = angular.copy(employee);
 
@@ -12,6 +20,13 @@
 			$scope.employee = {};
 		}
 
+		$scope.openCalendar = function ($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.opened = !$scope.opened;
+		};
+
 		$scope.departments = [
 			"Engineering",
 			"Marketing",
@@ -20,6 +35,13 @@
 		];
 
 		$scope.submitForm = function () {
+
+			$scope.$broadcast('show-errors-event');
+
+			if ($scope.employeeForm.$invalid) {
+				return false;
+			}
+
 			dataSrv.saveEmployee($scope.employee);
 			$window.history.back();
 			return false;
